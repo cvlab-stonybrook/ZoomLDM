@@ -44,6 +44,7 @@ pytorch-fid
 wandb==0.15.4
 h5py
 huggingface_hub
+datasets==3.0.2
 -e git+https://github.com/CompVis/taming-transformers.git@master#egg=taming-transformers
 -e git+https://github.com/openai/CLIP.git@main#egg=clip
 -e .

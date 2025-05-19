@@ -9,7 +9,9 @@ kornia==0.6.9
 matplotlib>=3.7.2
 natsort>=8.4.0
 ninja>=1.11.1
-numpy>=1.24.4
+numpy==1.24.4
+pyarrow==17.0.0
+bitsandbytes==0.43.2
 open-clip-torch>=2.20.0
 opencv-python==4.6.0.66
 pandas>=2.0.3
@@ -45,6 +47,6 @@ wandb==0.15.4
 h5py
 huggingface_hub
 datasets==3.0.2
--e git+https://github.com/CompVis/taming-transformers.git@master#egg=taming-transformers
+taming-transformers-rom1504 
 -e git+https://github.com/openai/CLIP.git@main#egg=clip
 -e .

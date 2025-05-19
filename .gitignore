@@ -5,5 +5,5 @@ logs
 taming
 wandb
 tmp
-models
+./models
 src

@@ -36,10 +36,10 @@ We demonstrate patch-level generation at any scale in [`sample_patches.ipynb`](.
 ### Large image generation
 <center>
 <a href="./assets/brca_001.jpeg">
-<img src="./assets/brca_001.jpeg" style="width:500px;height:500px;"> 
+<img src="./assets/brca_001.jpeg" style="width:300px;height:300px;"> 
 </a>
 <a href="./assets/naip_001.jpg">
-<img src="./assets/naip_001.jpg" style="width:500px;height:500px;"> 
+<img src="./assets/naip_001.jpg" style="width:300px;height:300px;"> 
 </a>
 </center>
 <br>

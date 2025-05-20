@@ -1,6 +1,7 @@
 # ZoomLDM: Latent Diffusion Model for multi-scale image generation 
 
-### <div align="center"> CVPR 2025 Poster <div>
+
+### <div align="center"> CVPR 2025 <div>
 
 <div align="center">
     <a href="https://histodiffusion.github.io/docs/projects/zoomldm/"><img src="https://img.shields.io/static/v1?label=Project&message=Page&color=red&logo=github-pages"></a> &ensp;
@@ -17,14 +18,40 @@ git clone https://github.com/cvlab-stonybrook/ZoomLDM/
 conda activate zoomldm
 pip install -r requirements.txt
 ```
+The model weights are hosted on [huggingface](https://huggingface.co/StonyBrook-CVLab/ZoomLDM). The inference scripts we provide below download the model weights using [huggingface hub](https://huggingface.co/docs/hub/index).
 
 ## Inference
 
-Refer to these notebooks for sampling images using the pretrained model:
+### Patch level generation
+<center>
+<a href="./assets/patches.png">
+<img src="./assets/patches.png">
+</a>
+</center>
+<br>
+<br>
 
-- [Patch level generation](./notebooks/sample_patches.ipynb)
-- Large image generation : coming soon
-- Super resolution : coming soon
+We demonstrate patch-level generation at any scale in [`sample_patches.ipynb`](./notebooks/sample_patches.ipynb).
+
+### Large image generation
+<center>
+<a href="./assets/brca_001.jpeg">
+<img src="./assets/brca_001.jpeg" style="width:500px;height:500px;"> 
+</a>
+<a href="./assets/naip_001.jpg">
+<img src="./assets/naip_001.jpg" style="width:500px;height:500px;"> 
+</a>
+</center>
+<br>
+<br>
+
+For large image generation, we use the proposed joint multi-scale sampling algorithm.
+
+We provide an implementation of the algorithm in [`joint_multiscale.ipynb`](./notebooks/joint_multiscale.ipynb)
+
+
+### Super-resolution
+Coming soon.
 
 ## Training
 Coming soon

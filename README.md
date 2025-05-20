@@ -47,11 +47,25 @@ We demonstrate patch-level generation at any scale in [`sample_patches.ipynb`](.
 
 For large image generation, we use the proposed joint multi-scale sampling algorithm.
 
-We provide an implementation of the algorithm in [`joint_multiscale.ipynb`](./notebooks/joint_multiscale.ipynb)
+We provide an implementation of the algorithm in [`joint_multiscale.ipynb`](./notebooks/joint_multiscale.ipynb).
 
 
 ### Super-resolution
-Coming soon.
+<center>
+<a href="./assets/lr.jpg">
+<img src="./assets/lr.jpg" style="width:300px;height:300px;"> 
+</a>
+<a href="./assets/sr.jpg">
+<img src="./assets/sr.jpg" style="width:300px;height:300px;"> 
+</a>
+</center>
+<br>
+<br>
+
+Super-resolution uses the condition inversion algorithm proposed in the paper and with the joint multi-scale sampling to enforce the low-resolution constraint.
+
+We prove an implementation in [`superres.ipynb`](./notebooks/superres.ipynb).
+
 
 ## Training
 Coming soon

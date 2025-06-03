@@ -72,10 +72,12 @@ Coming soon
 
 ## Bibtex
 ```bibtex
-@article{yellapragada2024zoomldm,
-  title={ZoomLDM: Latent Diffusion Model for multi-scale image generation},
-  author={Yellapragada, Srikar and Graikos, Alexandros and Triaridis, Kostas and Prasanna, Prateek and Gupta, Rajarsi R and Saltz, Joel and Samaras, Dimitris},
-  journal={arXiv preprint arXiv:2411.16969},
-  year={2024}
+@InProceedings{Yellapragada_2025_CVPR,
+  author = {Yellapragada, Srikar and Graikos, Alexandros and Triaridis, Kostas and Prasanna, Prateek and Gupta, Rajarsi and Saltz, Joel and Samaras, Dimitris},
+  title = {ZoomLDM: Latent Diffusion Model for Multi-scale Image Generation},
+  booktitle = {Proceedings of the Computer Vision and Pattern Recognition Conference (CVPR)},
+  month = {June},
+  year = {2025},
+  pages = {23453-23463}
 }
 ```

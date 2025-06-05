@@ -68,7 +68,36 @@ We prove an implementation in [`superres.ipynb`](./notebooks/superres.ipynb).
 
 
 ## Training
-Coming soon
+
+To train the model, you need to prepare a multi-scale dataset of images, conditioning. 
+
+### Patch extraction
+
+We use the codebase of [DS-MIL](https://github.com/binli123/dsmil-wsi) to extract regions from the WSIs, first at the base 20x magnification. The patches range from 256x256 to 32768x32768 pixels. You might want to use a lower tissue threshold for larger images.
+
+Example command:
+
+```bash
+python deepzoom_tiler.py -m 0 -b 20 -s 1024
+```
+would extract 1024x1024 patches at 20x.
+
+### Feature extraction
+We pre-extract UNI embeddings (conditioning) from the full resolution images in a patch-based manner. A 2048x2048 image would result in 64x256x256 patches -> 64x1024 UNI embedding.
+
+We then resize images to 256x256, extract VAE features, and save them together with the UNI embeddings. 
+
+Please take a look at the [demo dataset](https://huggingface.co/datasets/StonyBrook-CVLab/ZoomLDM-demo-dataset) or our [dataloader script](./ldm/data/brca.py) for more details.
+
+
+### Training
+Create a config file similar to [this](./configs/zoomldm_brca.yaml), which specifies the dataset, model, and training parameters.
+
+Then, run the training script:
+
+```bash 
+python main.py -t --gpus 0,1,2 --base configs/zoomldm_brca.yaml
+```
 
 ## Bibtex
 ```bibtex

@@ -49,6 +49,8 @@ For large image generation, we use the proposed joint multi-scale sampling algor
 
 We provide an implementation of the algorithm in [`joint_multiscale.ipynb`](./notebooks/joint_multiscale.ipynb).
 
+You can find more examples of large images [here](https://histodiffusion.github.io/pages/zoomldm_large_images/large_images.html).
+
 
 ### Super-resolution
 <center>

@@ -31,7 +31,7 @@ The model weights are hosted on [huggingface](https://huggingface.co/StonyBrook-
 <br>
 <br>
 
-We demonstrate patch-level generation at any scale in [`sample_patches.ipynb`](./notebooks/sample_patches.ipynb).
+We demonstrate patch-level generation at any scale in [`sample_patches_brca.ipynb`](./notebooks/sample_patches_brca.ipynb) and [`sample_patches_naip.ipynb`](./notebooks/sample_patches_naip.ipynb).
 
 ### Large image generation
 <center>
@@ -69,25 +69,31 @@ We prove an implementation in [`superres.ipynb`](./notebooks/superres.ipynb).
 
 ## Training
 
-To train the model, you need to prepare a multi-scale dataset of images, conditioning. 
+To train the model, you need to prepare a multi-scale dataset of {images, conditioning}. 
 
-### Patch extraction
+### Patch extraction 
+
 
 We use the codebase of [DS-MIL](https://github.com/binli123/dsmil-wsi) to extract regions from the WSIs, first at the base 20x magnification. The patches range from 256x256 to 32768x32768 pixels. You might want to use a lower tissue threshold for larger images.
 
-Example command:
+The following command will extract 1024x1024 patches at 20x:
 
 ```bash
 python deepzoom_tiler.py -m 0 -b 20 -s 1024
 ```
-would extract 1024x1024 patches at 20x.
+
+> Refer to [this issue](https://github.com/cvlab-stonybrook/ZoomLDM/issues/4) for satellite image patch extraction.
 
 ### Feature extraction
+
+#### Histopathology 
 We pre-extract UNI embeddings (conditioning) from the full resolution images in a patch-based manner. A 2048x2048 image would result in 64x256x256 patches -> 64x1024 UNI embedding.
 
 We then resize images to 256x256, extract VAE features, and save them together with the UNI embeddings. 
 
-Please take a look at the [demo dataset](https://huggingface.co/datasets/StonyBrook-CVLab/ZoomLDM-demo-dataset) or our [dataloader script](./ldm/data/brca.py) for more details.
+> For NAIP, we use the pre-trained DINO-v2 ViT-Large [(dinov2_vitl14_reg)](https://github.com/facebookresearch/dinov2?tab=readme-ov-file#pretrained-backbones-via-pytorch-hub) checkpoint to extract embeddings.
+
+Please take a look at the demo datasets: [brca](https://huggingface.co/datasets/StonyBrook-CVLab/ZoomLDM-demo-dataset-BRCA)/[naip](https://huggingface.co/datasets/StonyBrook-CVLab/ZoomLDM-demo-dataset-NAIP) or our dataloader scripts: [brca](./ldm/data/brca.py)/[naip](./ldm/data/naip.py) for more details.
 
 
 ### Training

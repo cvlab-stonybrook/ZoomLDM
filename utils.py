@@ -24,7 +24,8 @@ def collate_fn(batch):
         outputs['image'].append(torch.from_numpy(np.array(pil_img)))
 
         for k in ['ssl_feat','ssl_feat_unpooled', 'mag']:
-            outputs[k].append(torch.tensor(item[k]))
+            if k in item:
+                outputs[k].append(torch.tensor(item[k]))
 
     for k,v in outputs.items():
         outputs[k] = torch.stack(v)

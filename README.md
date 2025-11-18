@@ -46,10 +46,11 @@ We demonstrate patch-level generation at any scale in [`sample_patches_brca.ipyn
 <br>
 
 For large image generation, we use the proposed joint multi-scale sampling algorithm.
+For a more in-depth analysis of the inference algorithm refer to [Fast constrained sampling in pre-trained diffusion models (NeurIPS 2025)](https://github.com/cvlab-stonybrook/fast-constrained-sampling)
 
-We provide an implementation of the algorithm in [`joint_multiscale.ipynb`](./notebooks/joint_multiscale.ipynb).
+An implementation of the algorithm for generating very large images using ZoomLDM is given in [`joint_multiscale.ipynb`](./notebooks/joint_multiscale.ipynb).
 
-You can find more examples of large images [here](https://histodiffusion.github.io/pages/zoomldm_large_images/large_images.html).
+For more examples of large images, see [our website](https://histodiffusion.github.io/pages/zoomldm_large_images/large_images.html).
 
 
 ### Super-resolution

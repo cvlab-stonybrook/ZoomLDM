@@ -99,7 +99,7 @@ We then resize images to 256x256, extract VAE features, and save them together w
 Please take a look at the demo datasets: [brca](https://huggingface.co/datasets/StonyBrook-CVLab/ZoomLDM-demo-dataset-BRCA)/[naip](https://huggingface.co/datasets/StonyBrook-CVLab/ZoomLDM-demo-dataset-NAIP) or our dataloader scripts: [brca](./ldm/data/brca.py)/[naip](./ldm/data/naip.py) for more details.
 
 
-### Training
+### Training command
 Create a config file similar to [this](./configs/zoomldm_brca.yaml), which specifies the dataset, model, and training parameters.
 
 Then, run the training script:
@@ -107,6 +107,15 @@ Then, run the training script:
 ```bash 
 python main.py -t --gpus 0,1,2 --base configs/zoomldm_brca.yaml
 ```
+
+
+## Conditioning diffusion model (CDM)
+
+Our image synthesis pipeline requires a set of SSL embeddings and a magnification level, which involves extracting embeddings from a reference image. This becomes impractical when access to the reference image is unavailable. To address this, we introduce the Conditioning Diffusion Model (CDM) that generates SSL embeddings conditioned on the specified magnification level. 
+
+We provide the training and inference scripts for CDM in [`cdm_dit/`](./cdm_dit/).
+
+Pretrained model weights for CDM are available [here](https://huggingface.co/StonyBrook-CVLab/ZoomLDM).
 
 ## Bibtex
 ```bibtex
